@@ -1,4 +1,6 @@
+import 'package:approval/utils/Goroute.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'feature/Expenses/view/expenses/expenses_wizard_page.dart';
 
 void main() {
@@ -8,7 +10,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: ThemeData(
         brightness: Brightness.light,
         primarySwatch: Colors.indigo,
@@ -49,7 +51,7 @@ class MyApp extends StatelessWidget {
       ),
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: ExpensesWizardPage(),
+      routerConfig: router,
     );
   }
 }

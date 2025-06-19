@@ -16,7 +16,6 @@ class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     return BlocBuilder<HomeViewmodel, HomeStates>(
       bloc: viewmodel,
       builder: (context, state) {

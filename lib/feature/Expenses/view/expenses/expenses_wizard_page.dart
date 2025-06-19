@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../utils/Appcolors.dart';
@@ -46,14 +47,28 @@ class ExpensesWizardView extends StatelessWidget {
     final step = viewModel.currentStep;
     final theme = Theme.of(context);
 
+    final isDark = theme.brightness == Brightness.light;
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+
         backgroundColor: Colors.black,
-        appBar: AppBar(
-          title: const Text('مصاريف'),
-          backgroundColor: Colors.black,
-          foregroundColor: Colors.white,
+        appBar:AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            color: isDark ? Colors.black : Colors.white,
+            onPressed: () {
+              context.go('/Home');
+            },
+          ),
+          title: Text(
+            'الطلب',
+            style: TextStyle(
+              color: isDark ? Colors.black : Colors.white,
+            ),
+          ),
+          centerTitle: true,
+          backgroundColor: isDark ? Colors.white : Colors.black,
         ),
         body: Column(
           children: [

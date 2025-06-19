@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Orders extends StatelessWidget {
   const Orders({super.key});
@@ -10,56 +11,55 @@ class Orders extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        elevation: 1,
         title: Text(
           'الطلبات',
           style: TextStyle(
             color: isDark ? Colors.black : Colors.white,
           ),
         ),
-        iconTheme: IconThemeData(
-          color: isDark ? Colors.white : Colors.black,
-        ),
       ),
-      body: Directionality( // RTL
-        textDirection: TextDirection.rtl,
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'اختر نوع الطلب',
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
+      body: SafeArea(
+        child: Directionality( // RTL
+          textDirection: TextDirection.rtl,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'اختر نوع الطلب',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              SizedBox(height: 16),
-              Row(
-                children: [
-                  Expanded(
-                    child: _buildButton(
-                      icon: Icons.shopping_cart,
-                      label: 'حاله الطلب',
-                      onTap: () {
-                        print('حاله الطلب');
-                      },
+                SizedBox(height: 16),
+                Row(
+                  children: [
+                    Expanded(
+                      child: _buildButton(
+                        icon: Icons.shopping_cart,
+                        label: 'حاله الطلب',
+                        onTap: () {
+                         context.go('/ExpensesWizardPage');
+                        },
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 16), // مسافة بين الزرين
-                  Expanded(
-                    child: _buildButton(
-                      icon: Icons.attach_money,
-                      label: 'المصروفات',
-                      onTap: () {
-                        print('المصروفات');
-                      },
+                    SizedBox(width: 16), // مسافة بين الزرين
+                    Expanded(
+                      child: _buildButton(
+                        icon: Icons.attach_money,
+                        label: 'المصروفات',
+                        onTap: () {
+                          context.go('/ExpensesWizardPage');
+        
+                        },
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -43,50 +43,50 @@ class _OrderStatusState extends State<OrderStatus> {
         ),
         centerTitle: true,
         backgroundColor: isDark ? Colors.black : Colors.white,
-        iconTheme: IconThemeData(
-          color: isDark ? Colors.white : Colors.black,
-        ),
+
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView(
-          children: [
-            Card(
-              elevation: 4,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Chip(
-                          label: Text('APPROVED', style: TextStyle(color: Colors.white)),
-                          backgroundColor: Colors.blue,
-                        ),
-                        Text(
-                          'EGP ١٣٥٠٠٠',
-                          style: TextStyle(color: Colors.blue, fontSize: 16),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    GestureDetector(
-                      onTap: () => setState(() => showDetails = !showDetails),
-                      child: Text(
-                        showDetails ? 'Show less' : 'Show approvals',
-                        style: const TextStyle(color: Colors.blue),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: ListView(
+            children: [
+              Card(
+                elevation: 4,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Chip(
+                            label: Text('APPROVED', style: TextStyle(color: Colors.white)),
+                            backgroundColor: Colors.blue,
+                          ),
+                          Text(
+                            'EGP ١٣٥٠٠٠',
+                            style: TextStyle(color: Colors.blue, fontSize: 16),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 8),
+                      GestureDetector(
+                        onTap: () => setState(() => showDetails = !showDetails),
+                        child: Text(
+                          showDetails ? 'Show less' : 'Show approvals',
+                          style: const TextStyle(color: Colors.blue),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 16),
-            if (showDetails) _buildTimeline()
-          ],
+              const SizedBox(height: 16),
+              if (showDetails) _buildTimeline()
+            ],
+          ),
         ),
       ),
     );

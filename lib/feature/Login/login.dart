@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../utils/CustomButton.dart';
 import '../../utils/CustomText.dart';
 import '../Home/HomeScreen.dart';
@@ -16,7 +17,7 @@ class login extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/images/splacelogo.png', width: 150),
+              Image.asset('assets/images/splachicon.jpg', width: 150),
               SizedBox(height: 20),
               Text(
                 'Approval System',
@@ -42,9 +43,7 @@ class login extends StatelessWidget {
                 width: 250,
                 text: 'تسجيل الدخول',
                 onPressed: () {
-                  Navigator.of(
-                    context,
-                  ).push(MaterialPageRoute(builder: (context) => Homescreen()));
+                  context.go('/Home');
                 },
               ),
             ],
